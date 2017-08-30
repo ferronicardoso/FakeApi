@@ -12,7 +12,7 @@ using AutoMapper;
 
 namespace FakeApi.WebApp.Controllers
 {
-    [RoutePrefix("Dashboard")]
+    [RoutePrefix("dashboard")]
     public class DashboardController : BaseController
     {
         // GET: Default

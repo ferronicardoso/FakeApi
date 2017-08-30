@@ -16,7 +16,13 @@ namespace FakeApi.WebApp
             };
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
+            routes.MapRoute(
+                name: "Default",
+                url: "dashboard/{action}/{id}",
+                defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "ApiDefault",
                 url: "api/{*permalink}",
@@ -28,12 +34,6 @@ namespace FakeApi.WebApp
                 name: "Version",
                 url: "api/version",
                 defaults: new { controller = "Api", action = "Version", slug = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Default",
-                url: "dashboard/{action}/{id}",
-                defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
