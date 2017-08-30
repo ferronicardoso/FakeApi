@@ -8,17 +8,17 @@ namespace FakeApi.Domain.Enums
 {
     public enum VerbType
     {
-        [Description("Get")]
+        [Description("GET")]
         GET = 0,
-        [Description("Post")]
+        [Description("POST")]
         POST = 1,
-        [Description("Put")]
+        [Description("PUT")]
         PUT = 2,
-        [Description("Patch")]
+        [Description("PATCH")]
         PATCH = 3,
-        [Description("Delete")]
+        [Description("DELETE")]
         DELETE = 4,
-        [Description("Options")]
+        [Description("OPTIONS")]
         OPTIONS = 5
     }
 }

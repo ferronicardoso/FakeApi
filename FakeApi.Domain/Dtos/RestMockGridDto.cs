@@ -14,5 +14,6 @@ namespace FakeApi.Domain.Dtos
         public bool Active { get; set; }
         public string Path { get; set; }
         public string Verb { get; set; }
+        public string ResponseStatus { get; set; }
     }
 }

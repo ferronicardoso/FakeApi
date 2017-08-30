@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="page-header">Meus Mock REST</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    <a href="@Url.Action("Create", "Dashboard")" class="btn btn-primary">Criar Novo</a>
 </p>
 <table class="table">
     <tr>
@@ -22,6 +22,9 @@
             @Html.DisplayNameFor(model => model.Active)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ResponseStatus)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Path)
         </th>
         <th>
@@ -30,28 +33,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Path)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Verb)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdRestMock }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdRestMock })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResponseStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Path)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verb)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdRestMock }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.IdRestMock })
+            </td>
+        </tr>
+    }
 
 </table>

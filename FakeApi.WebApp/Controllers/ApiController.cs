@@ -13,7 +13,7 @@ namespace FakeApi.WebApp.Controllers
     [RoutePrefix("api")]
     public class ApiController : BaseController
     {
-        [HttpGet, Route("version")]
+        [HttpGet, Route("info")]
         public ActionResult Version()
         {
             var version = new { version = "1.0.0.0" };
@@ -24,8 +24,8 @@ namespace FakeApi.WebApp.Controllers
         {
             var method = this.Request.HttpMethod;
             var model = GetRestMock(permalink);
-
-            var jsonResult = Json(model.ResponseBody, model.ContentType, JsonRequestBehavior.AllowGet);
+            
+            var jsonResult = Content(model.ResponseBody, model.ContentType);
             return jsonResult;
         }
 
