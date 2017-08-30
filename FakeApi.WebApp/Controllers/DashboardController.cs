@@ -8,14 +8,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 
 namespace FakeApi.WebApp.Controllers
 {
     [RoutePrefix("Dashboard")]
     public class DashboardController : BaseController
     {
-        private const string CONNECTION_STRING = "fakeApi.db";
-        
         // GET: Default
         public ActionResult Index()
         {
@@ -56,7 +55,7 @@ namespace FakeApi.WebApp.Controllers
             using (var repository = new RestMockRepository(this.ConnectionString))
             {
                 var model = repository.Get(x => x.IdRestMock == id);
-                return View(model);
+                return View(model.To<RestMockEditDto>());
             }
         }
 
