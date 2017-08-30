@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FakeApi.WebApp.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,9 @@ namespace FakeApi.WebApp
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
+            MapperConfig.InitMaps();
         }
     }
 }
